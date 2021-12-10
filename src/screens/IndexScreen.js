@@ -4,14 +4,13 @@ import {
   StyleSheet,
   Text,
   FlatList,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { Context as BlogContext } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
 const IndexScreen = ({ navigation }) => {
-  const { state, deleteBlogPost, showBlogPost } = useContext(BlogContext);
+  const { state, deleteBlogPost } = useContext(BlogContext);
 
   return (
     <View>
@@ -25,7 +24,7 @@ const IndexScreen = ({ navigation }) => {
             >
               <View style={styles.row}>
                 <Text style={styles.title}>
-                  {item.title} - {item.id} - {item.content}
+                  {item.title} - {item.id}
                 </Text>
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                   <Feather style={styles.icon_trash} name="trash" />
